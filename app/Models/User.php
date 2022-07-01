@@ -47,4 +47,12 @@ class User extends Authenticatable
     {
         return $this->telegram_user_id;
     }
+
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function notes(){
+        return $this->hasMany(Note::class);
+    }
 }

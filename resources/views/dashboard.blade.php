@@ -31,7 +31,7 @@
                             </select>
                         </label>
                         <label>Prise
-                            <input type="number" name="prise" required>
+                            <input type="number" name="prise" step="0.01" placeholder="0,00" required>
                         </label>
                         <label>Direction
                             <select name="dir" required>
@@ -40,10 +40,11 @@
                             </select>
                         </label>
                         <label>Description
-                            <input type="text" name="message">
+                            <input type="text" name="message" placeholder="text">
                         </label>
                         <input type="submit" value="Add" class="add-btn">
                     </form>
+                    <h2 style="font-size: 1.4rem">Active notifications</h2>
                     <div class="list">
                         <ul>
 

@@ -13,9 +13,21 @@
 .list ul{
 
 }
-.item{
+.li{
+    display: flex;
     list-style: none;
+}
+.item{
+    width: 90%;
     margin: 5px;
     background-color: #17e6ff;
     border-radius: 10px;
+}
+.delete-btn{
+    width: 60px;
+    border-radius: 10px;
+    color: #ffffff;
+    margin: 5px;
+    padding: 5px;
+    background-color: #ff505f;
 }
