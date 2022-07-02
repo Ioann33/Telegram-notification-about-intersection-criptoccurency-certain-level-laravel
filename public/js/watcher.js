@@ -1,4 +1,4 @@
-let ws = new WebSocket('wss://stream.binance.com:9443/ws/ethusdt@trade/btcusdt@trade/bnbusdt@trade');
+let ws = new WebSocket('wss://stream.binance.com:9443/ws/ethusdt@trade/btcusdt@trade/bnbusdt@trade/adausdt@trade');
 let storeMessage = new Object();
 
 async function getNotes(){
@@ -42,6 +42,7 @@ let response =  getNotes();
 let eth = document.getElementById('eth');
 let btc = document.getElementById('btc');
 let bnb = document.getElementById('bnb');
+let ada = document.getElementById('ada');
 let addForm = document.forms.addAlert;
 let lastPrice = null;
 
@@ -89,6 +90,12 @@ ws.onmessage = function (event) {
 
     }
 
+    if (stockObject.s === 'ADAUSDT'){
+        ada.innerText = stockObject.s + ' ' + prise;
+        ada.style.color =!lastPrice || lastPrice === prise ? 'black' : prise > lastPrice ? 'green' : 'red';
+
+    }
+
     lastPrice = prise;
 }
 
@@ -96,14 +103,17 @@ function checkPrise(obj){
     let btcStr = btc.innerText;
     let ethStr = eth.innerText;
     let bnbStr = bnb.innerText;
+    let adaStr = ada.innerText;
     let btcArray = btcStr.split(' ');
     let ethArray = ethStr.split(' ');
     let bnbArray = bnbStr.split(' ');
+    let adaArray = adaStr.split(' ');
 
     let resArray = [
         btcArray,
         ethArray,
         bnbArray,
+        adaArray,
     ];
 
     for (let key in obj){
